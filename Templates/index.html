@@ -32,8 +32,16 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="{% static 'index.html' %}">Home</a></li>
-									<li><a href="{% static 'about.html' %}">About us</a></li>
-									<li><a href="{% static 'news.html' %}">News</a></li>
+
+									{% if user.is_authenticated %}
+									<li>Hello, {{user.first_name}}</li>
+									<li><a href="accounts/logout">Logout</a></li>
+
+									{% else %}
+									<li><a href="accounts/register">Register</a></li>
+									<li><a href="accounts/login">Login</a></li>
+									{% endif %}
+									
 									<li><a action="ticket" href="ticket">Book Ticket</a></li>
 								</ul>
 							</nav>
