@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if STATUS == 'TXN_SUCCESS'%}
+        {{RESPMSG}} <br>
+        {{TXNID}}
+    {% else %}
+        {{RESPMSG}}
+        <a href="{% url 'pay'%}"> TRY AGAIN </a>
+    {% endif %}
+
+    <br><form action="/home">
+        <input type="submit" value="Go to Home" />
+    </form>
+</body>
+</html>

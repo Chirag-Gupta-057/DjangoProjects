@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        REDIRECTING TO THE PAYMENT GATEWAY
+    </h1>
+    <form action="https://securegw-stage.paytm.in/theia/processTransaction" name="payment" method="POST">
+        {% csrf_token %}
+        {% for k,v in data.items %}
+            <input type="hidden" name="{{k}}" value="{{v}}">
+        {% endfor %}
+    </form>    
+    <script>
+        document.payment.submit()
+    </script>
+</body>
+</html>
